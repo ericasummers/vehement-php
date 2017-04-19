@@ -2,6 +2,7 @@
   date_default_timezone_set('America/Los_Angeles');
   require_once __DIR__.'/../vendor/autoload.php';
   require_once __DIR__.'/../src/Band.php';
+  require_once __DIR__.'/../src/Fan.php';
 
   $server = 'mysql:host=localhost:8889;dbname=vehement-php';
   $username = 'root';
@@ -31,10 +32,23 @@
       $members = $_POST['members'];
       $new_band = new Band($name, $genre, $description, $members);
       $new_band->save();
-      $bands = Band::getAll();
 
       return $app->redirect('/');
   });
+
+  $app->get('/fans', function() use ($app) {  // HOME PAGE WITH ENTER FORMS
+        $fans = Fan::getAll();
+        return $app['twig']->render('fans.html.twig', array('fans' => $fans));
+    });
+
+    $app->post('/add-fan', function() use ($app) {
+        $username = $_POST['username'];
+        $favBand = $_POST['favBand'];
+        $new_fan = new Fan($username, $favBand);
+        $new_fan->save();
+
+        return $app->redirect('/fans');
+    });
 
     return $app;
 

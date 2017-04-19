@@ -5,9 +5,23 @@
     <link href="/styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="container">
-      <h1>Bands</h1>
+    <nav class="navbar navbar-inner">
+      <div class="container navbar-left">
+        <a href="/">Bands</a>&nbsp;&nbsp;<a href="/fans">Fans</a>
+      </div>
+      <div class="navbar-right">
 
+        <h3>NAVBAR</h3>
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <br>
+      <h1>Bands</h1>
+      <img src="./mchammer.gif" alt="pelase hammer dont hurt em" /> &nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="./mchammer.gif" alt="pelase hammer dont hurt em" />&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="./mchammer.gif" alt="pelase hammer dont hurt em" />&nbsp;&nbsp;&nbsp;&nbsp;
       <form method="post" action="add-band">
         <div class="form-group">
           <label for="name">Band Name:</label>
@@ -36,11 +50,11 @@
           <label for="members">Members:</label>
           <textarea name="members" rows="3" cols="40"></textarea>
         </div>
-        <button class="btn btn-success" type="submit" name="button">Excelsior!</button>
+        <button class="btn btn-primary" type="submit" name="button">Excelsior!</button>
       </form>
       {% for band in bands %}
-        <h3>{{band.name}}</h3>
-        <h5>{{band.genre}}</h5>
+        <h2>{{band.name}}</h2>
+        <h4>{{band.genre}}</h4>
         <h4>Members-> {{band.members}}</h4>
         <h4>Description-> {{band.description}}</h4>
         <br><br>
