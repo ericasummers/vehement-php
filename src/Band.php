@@ -52,6 +52,33 @@
       return $this->id;
     }
 
+    function save()
+    {
+      $GLOBALS['DB']->exec("INSERT INTO bands (name, genre, description, members) VALUES ('{$this->name}', '{$this->genre}', '{$this->description}', '{$this->members}');");
+      $this->id = $GLOBALS['DB']->lastInsertId();
+    }
+
+    static function getAll()
+    {
+      $all_bands = $GLOBALS['DB']->query("SELECT * FROM bands;");
+      $bands = array();
+
+      foreach ($all_bands as $band) {
+        $name = $band['name'];
+        $genre = $band['genre'];
+        $description = $band['description'];
+        $members = $band['members'];
+        $id = $band['id'];
+        $new_band = new Band($name, $genre, $description, $members, $id);
+        array_push($bands, $new_band);
+      }
+      return $bands;
+    }
+
+    static function deleteAll()
+    {
+      $GLOBALS['DB']->exec("DELETE FROM bands;");
+    }
 
   }
 

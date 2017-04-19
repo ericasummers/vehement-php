@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/geo-bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bands</h1>
+
+      <form method="post" action="add-band">
+        <div class="form-group">
+          <label for="name">Band Name:</label>
+          <input class="form-control" type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label for="genre">Genre:</label>
+          <select name="genre">
+            <option value="black-metal">Black Metal</option>
+            <option value="death metal">Death Metal</option>
+            <option value="speed metal">Speed Metal</option>
+            <option value="power metal">Power Metal</option>
+            <option value="thrash metal">Thrash Metal</option>
+            <option value="stoner metal">Stoner Metal</option>
+            <option value="viking metal">Viking Metal</option>
+            <option value="doom metal">Doom Metal</option>
+            <option value="alternative metal">Alternative Metal</option>
+            <option value="folk metal">Folk Metal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input class="form-control" type="text" name="description">
+        </div>
+        <div class="form-group">
+          <label for="members">Members:</label>
+          <textarea name="members" rows="3" cols="40"></textarea>
+        </div>
+        <button class="btn btn-success" type="submit" name="button">Excelsior!</button>
+      </form>
+      {% for band in bands %}
+        <h3>{{band.name}}</h3>
+        <h5>{{band.genre}}</h5>
+        <h4>Members-> {{band.members}}</h4>
+        <h4>Description-> {{band.description}}</h4>
+        <br><br>
+      {% endfor %}
+    </div>
+  </body>
+</html>
