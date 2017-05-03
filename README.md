@@ -4,13 +4,7 @@
 
 &nbsp;
 ## Description
-
-
-&nbsp;
-## Specifications
-|Behavior|Input|Output|
-|--------|-----|------|
-
+This website was created using PHP and Silex as a fanpage for a fake metal band called Vehement Tranquility, and using the geocities bootstrap styling features.
 
 &nbsp;
 ## Setup/Installation Requirements
